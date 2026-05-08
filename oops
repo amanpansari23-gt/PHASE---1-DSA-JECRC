@@ -1,1 +1,84 @@
+Question = code for encapsulation AND abstraction.
 
+#include <iostream>
+using namespace std;
+//Encapsulation/Abstraction
+class Student
+{
+  private:
+  string name;
+  int age;
+  int roll_no;
+  
+  public:
+  void setter(string n,int a, int r)
+  {
+    name = n;
+    age = a;
+    roll_no = r;
+  }
+  
+  int getter()
+  {
+    return age;
+    
+  }
+};
+
+
+int main() 
+{
+  Student obj;
+  obj.setter("Aman",20,10);
+  cout<<obj.getter();
+
+  return 0;
+}
+
+
+
+
+Questiion = function overloading
+
+
+#include <iostream>
+using namespace std;
+//Encapsulation/Abstraction
+class Student
+{
+  private:
+  string name;
+  int age;
+  int roll_no;
+  
+  public:
+  int area(int l,int r)
+  {
+    return(l*r);
+  }
+  
+  int area(int r)
+  {
+    return(r*r);
+  }
+  void display()
+  {
+    cout<<name<<" "<<age<<" "<<roll_no<<endl;
+  }
+};
+
+
+int main() 
+{
+  Student obj;
+  cout<<"Rectangle area :"<<obj.area(3,4)<<endl;
+  cout<<"Square area :"<<obj.area(3);
+  
+
+  return 0;
+}
+
+
+
+
+Question = code for 
