@@ -95,3 +95,74 @@ int main()
     
     return 0;
 }
+
+Question = code for reverese array of geeks for geeks platform
+
+class Solution {
+  public:
+    void reverseArray(vector<int> &arr) {
+        // code here
+        int n = arr.size();
+        int i=0, j=n-1;
+        while(i<=j)
+        {
+            swap(arr[i],arr[j]);
+            i++;
+            j--;
+        }
+    }
+};
+
+
+Question = code for two sum  input array is unsorted  leetcode
+
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target)
+     {
+      vector<int>arr;
+        for(int i = 0; i<=nums.size()-1;i++)
+        {
+            for(int j = i+1;j<nums.size();j++)
+            {
+                if(nums[i]+nums[j] == target)
+                {
+                    arr.push_back(i);
+                    arr.push_back(j);
+                }
+            }
+        } 
+        return arr; 
+    }
+};
+
+Question = code for two sum input array is unsorted leetcode question
+
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector<int>arr;
+
+        int i = 0, j = numbers.size()-1;
+        while(i<=j)
+        {
+            if(numbers[i]+numbers[j] == target)
+            {
+                arr.push_back(i+1);
+                arr.push_back(j+1);
+                break;
+            }
+            else if(numbers[i]+numbers[j] > target )
+            {
+                j--;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return arr;
+    }
+};
