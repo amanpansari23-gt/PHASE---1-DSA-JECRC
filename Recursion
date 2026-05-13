@@ -1,0 +1,25 @@
+Question = code of sum of digits for geeksforgeeks
+
+
+class Solution {
+    void solve(int n,int &sum)
+    {
+        //Base case
+        if(n==0)
+        {
+            return;
+        }
+        
+        //Recursive case
+        int rem = n%10;//Last digit
+        sum = sum + rem;
+        solve(n/10,sum);
+    }
+  public:
+    int sumOfDigits(int n) {
+        // code here
+        int sum = 0;
+        solve(n,sum);
+        return sum;
+    }
+};
