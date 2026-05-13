@@ -23,3 +23,24 @@ class Solution {
         return sum;
     }
 };
+
+
+Question = code for factorial using recursion gfg
+
+
+class Solution {
+    int fact(int n)
+    {
+        //base case
+        if(n==0)
+        return 1;
+        
+        //Recursive case 
+        return n*fact(n-1);
+    }
+  public:
+    int factorial(int n) {
+        // code here
+        return fact(n);
+    }
+};
