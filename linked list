@@ -1,0 +1,66 @@
+Question = code for linked list inserting a node at start and end
+
+#include <iostream>
+using namespace std;
+//Structure of  Node
+class Node
+{
+  public:
+  int val;
+  Node *next;
+  
+  Node(int v)
+  {
+    val = v;
+    next = NULL;
+  }
+};
+
+void insertAtStart(Node *head,Node *tail)
+{
+  if(head == NULL)
+  {
+    Node *n =  new Node(2);
+    head = n;
+    tail = n;
+  }
+  else
+  {
+    Node *n = new Node(3);
+    n->next = head;
+    head =  n;
+  }
+  
+}
+
+void insertAtEnd(Node *head,Node *tail)
+{
+  
+  if(head == NULL)
+  {
+    Node*n =  new Node(2);
+    head = n;
+    tail = n;
+  }
+  else
+  {
+    Node *n = new Node(3);
+    tail ->next = n;
+    tail = n;
+  }
+  
+}
+
+int main() 
+{
+  Node *head,*tail;
+  head = NULL;
+  tail = NULL;
+  insertAtStart(head,tail);
+  insertAtStart(head,tail);
+  insertAtEnd(head,tail);
+  insertAtEnd(head,tail);
+  
+  
+  return 0;
+}
