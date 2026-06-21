@@ -151,3 +151,229 @@ class Solution {
         
     }
 };
+
+
+Question = allocate minimum pages of geeksforgeeks problem
+
+class Solution {
+  public:
+  bool ispossible(vector<int> &arr, int k, int mid )
+  {
+     int student = 1;
+     int readpages = 0;
+     for(int i = 0;i<arr.size();)
+     {
+         if((readpages + arr[i]) <= mid)
+         {
+             readpages += arr[i];
+             i++;
+         }
+         else
+         {
+             student++;
+             readpages = 0;
+         }
+         if(student > k)
+         {
+             return false;
+         }
+     }
+     return true;
+  }
+    int findPages(vector<int> &arr, int k) {
+       if(k > arr.size())
+       {
+           return -1;
+       }
+       int total = 0;
+       int ans;
+       for(int i = 0;i<arr.size();i++)
+       {
+           total += arr[i];
+       }
+       int s = 1, e = total;
+       while(s<=e)
+       {
+           int mid = (s+e)/2; // at most mid capacity of a person to read pages
+           if(ispossible(arr,k,mid))
+           {
+               ans = mid;
+               e = mid - 1;
+           }
+           else
+           {
+               s = mid + 1;
+           }
+        
+        }
+        return ans;
+    }    
+};
+
+Question = problem 1011 leetcode
+
+class Solution {
+public:
+   bool ispossible(vector<int>& weights, int days, int mid)
+   {
+    int day = 1;
+    int shipWeight = 0;
+    for(int i = 0;i<weights.size();)
+    {
+        if((shipWeight + weights[i]) <= mid)
+        {
+            shipWeight += weights[i];
+            i++;
+        }
+        else
+        {
+            day++;
+            shipWeight = 0;
+        }
+        if(day > days)
+        {
+            return false;
+        }
+    }
+    return true;
+   }
+    int shipWithinDays(vector<int>& weights, int days) {
+      int total = 0;
+      for(int i = 0 ;i<weights.size();i++)
+      {
+        total += weights[i];
+      }
+      int s = 1, e = total;
+      int ans; // minimum capaity of ship
+      while(s<=e)
+      {
+        int mid = (s+e)/2; //assume , atmost 'mid' capacity od=f ship
+        if(ispossible(weights,days,mid))
+        {
+            ans = mid;
+            e = mid - 1;
+        }
+        else
+        {
+            s = mid + 1;
+        }
+      }
+      return ans;
+    }
+};
+
+Question = problem 1552 leetcode
+
+class Solution {
+public:
+bool ispossible(vector<int>& position, int m ,  int mid)
+{
+    int ball = 1;
+    int pos = position[0];
+    for(int i = 1;i<position.size();i++)
+    {
+        if(position[i]-pos >= mid)
+        {
+            ball++;
+            pos = position[i];
+        }
+        if(ball == m)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+    int maxDistance(vector<int>& position, int m) {
+        sort(position.begin(),position.end());
+        int n = position.size();
+        int s = 1, e = position[n-1] - position[0];
+        int ans;
+        while(s<=e)
+        {
+            int mid = (s+e)/2;// atleast 'mid' distance between 2 balls
+            if(ispossible(position,m,mid))
+            {
+                ans = mid;
+                s = mid+1;
+            }
+            else
+            {
+                e = mid-1;
+            }
+        }
+        return ans;
+    }
+};
+
+Question = code for aggressive cows of geeksforgeeks
+
+class Solution {
+  public:
+  bool ispossible(vector<int> &stalls, int k , int mid)
+  {
+      int ball = 1;
+      int stall = stalls[0];
+      for(int i  = 1; i<stalls.size(); i++)
+      {
+          if(stalls[i]-stall >= mid)
+          {
+              ball++;
+              stall = stalls[i];
+          }
+          if(ball == k)
+          {
+              return true;
+          }
+      }
+      return false;
+  }
+    int aggressiveCows(vector<int> &stalls, int k) {
+        sort(stalls.begin(),stalls.end());
+        int n = stalls.size();
+        int s = 1, e = stalls[n-1] - stalls[0];
+        int ans;
+        while(s<=e)
+        {
+            int mid = (s+e)/2;
+            if(ispossible(stalls,k,mid))
+            {
+                ans  = mid;
+                s =  mid + 1;
+            }
+            else
+            {
+                e = mid - 1;
+            }
+        }
+        return ans;
+        
+    }
+};
+
+Question = code for problem 367 of leetcode
+
+
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        long long s = 1,e = num;
+        while(s<=e)
+        {
+            long long mid = (s+e)/2;
+            if(mid * mid == num)
+            {
+               return true;
+            }
+            else if(mid * mid > num)
+            {
+                e = mid - 1;
+            }
+            else
+            {
+                s = mid + 1;
+            }
+        }
+        return false;
+    }
+}; 
