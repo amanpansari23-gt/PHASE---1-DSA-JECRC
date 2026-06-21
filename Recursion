@@ -121,3 +121,28 @@ int main()
   }
   return 0;
 }
+
+Question = code of table of 2 using recursion
+
+#include <iostream>
+using namespace std;
+
+void table(int i, int n)
+{
+    if(i == n+1)
+    {
+        return;
+    }
+    cout<<2*i<<endl;
+    table(i+1,n);
+}
+
+int main() 
+{
+    int n;
+    int i = 1;
+    cin>>n;
+    table(i,n);
+
+    return 0;
+}
