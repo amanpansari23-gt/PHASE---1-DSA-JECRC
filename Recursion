@@ -202,3 +202,47 @@ class Solution {
         
     }
 };
+
+Question = code for leetcode problem 231
+
+class Solution {
+public:
+bool solve(int i, int n)
+{
+    //base case
+    if(pow(2,i) == n)
+    return true;
+
+    if(pow(2,i) > n)
+    return false;
+
+    return solve(i+1,n);
+    
+}
+    bool isPowerOfTwo(int n) {
+         return solve(0,n);
+    }
+};
+
+Question = code for reverse digit of gfg
+
+class Solution {
+  public:
+  int reverse (int n, int rev)
+  {
+      //base case
+      if(n == 0)
+      return rev;
+      
+      int rem = n%10;
+      rev = rev*10+rem;
+      
+      //recursive case
+      return reverse(n/10,rev);
+  }
+    int reverseDigits(int n) {
+        int rev = 0;
+        return reverse(n,rev);
+        
+    }
+};
