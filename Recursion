@@ -246,3 +246,32 @@ class Solution {
         
     }
 };
+
+Question = code for non linear recursion function
+
+#include <iostream>
+using namespace std;
+void print(string str, int i, int n, string ans)
+{
+    //base case
+    if(i == n)
+    return;
+
+    //ignore
+    print(str,i+1,n,ans);
+
+    //include
+    ans += str[i];
+    cout << ans << " ";
+    print(str,i+1,n,ans);
+}
+
+int main() 
+{
+   string str;
+   cin >> str;
+   string ans="";
+   print(str,0,str.length(),ans);
+
+   return 0;
+}
