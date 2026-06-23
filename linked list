@@ -96,3 +96,59 @@ class Solution {
        return head;
     }
 };
+
+Question = code for length of linked list of gfg
+
+/* Structure of linked list Node
+class Node {
+  public:
+    int data;
+    Node *next;
+
+    Node(int x) {
+        data = x;
+        next = nullptr;
+    }
+};
+*/
+class Solution {
+  public:
+    int getCount(Node* head) {
+      int count = 0;
+          Node* temp = head;
+          while(temp != NULL){
+              count++;
+              temp = temp->next;
+      }
+      return count;
+    }
+};
+
+Question = code for search in linked list of gfg
+
+/*
+class Node {
+  public:
+    int data;
+    Node* next;
+
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+}; */
+
+class Solution {
+  public:
+    bool searchKey(Node* head, int key) {
+        Node* temp = head;
+        while(temp != NULL){
+            if(temp->data == key)
+            return true;
+            
+            temp = temp->next;
+        
+    }
+    return false;
+    }
+};
