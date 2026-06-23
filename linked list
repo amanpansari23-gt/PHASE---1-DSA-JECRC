@@ -64,3 +64,35 @@ int main()
   
   return 0;
 }
+
+Question = code for linked list end insertion gfg
+
+/*
+class Node {
+  public:
+    int data;
+    Node* next;
+    Node(int data) {
+        this->data = data;
+        this->next = nullptr;
+    }
+};
+*/
+class Solution {
+  public:
+    Node *insertAtEnd(Node *head, int x) {
+       if(head == NULL)
+       {
+           Node *n = new Node(x);
+           head = n;
+       }
+       else{
+           Node *n = new Node(x);
+           Node *temp = head;
+           while(temp->next != NULL)
+           temp = temp->next;
+           temp->next = n;
+       }
+       return head;
+    }
+};
