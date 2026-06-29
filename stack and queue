@@ -236,3 +236,140 @@ int main()
     for(int i=0;i<5;i++)
     cout<<output[i]<<" ";
 }
+
+
+Question = code for kth smallest gfg
+
+class Solution {
+  public:
+    int kthSmallest(vector<int> &arr, int k) {
+        //max heap
+        priority_queue<int> max_heap;
+        
+        for(int i = 0;i<arr.size();i++)
+        {
+            max_heap.push(arr[i]);
+            if(max_heap.size() > k)
+            {
+                max_heap.pop();
+            }
+            
+        }
+        return max_heap.top();
+    }
+};
+
+Question = code for problem 215 leetcode
+
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        //min heap
+        priority_queue<int,vector<int>,greater<int>>min_heap;
+
+        for(int i = 0;i<nums.size();i++)
+        {
+            min_heap.push(nums[i]);
+            if(min_heap.size() > k)
+            {
+                min_heap.pop();
+            }
+        }
+        return min_heap.top();
+    }
+};
+
+Question = code for nearly sorted practice of gfg
+
+class Solution {
+  public:
+    void nearlySorted(vector<int>& arr, int k) {
+        //min_heap
+        
+        vector<int> output;
+        priority_queue<int,vector<int>,greater<int>>min_heap;
+        
+        for(int i = 0;i<arr.size();i++)
+        {
+            min_heap.push(arr[i]);
+            if(min_heap.size() > k)
+            {
+                output.push_back(min_heap.top());
+                min_heap.pop();
+            }
+        }
+        while(min_heap.size() != 0)
+        {
+            output.push_back(min_heap.top());
+            min_heap.pop();
+        }
+        
+        arr = output;
+        
+    }
+};
+
+Question  = code for sum of elements between k1'th and k2'th smallest elements
+
+class Solution {
+  public:
+  int kthsmallest(long long A[], long long N,long long k)
+  {
+      priority_queue<int> max_heap;
+        
+      for(int i = 0;i< N; i++)
+      {
+          max_heap.push(A[i]);
+          if(max_heap.size() > k)
+          {
+              max_heap.pop();
+          }
+      }
+      return max_heap.top();
+  }
+    long long sumBetweenTwoKth(long long A[], long long N, long long K1, long long K2) {
+         
+            int first = kthsmallest(A,N,K1);
+            int second = kthsmallest(A,N,K2);
+            
+            long long sum = 0;
+            for(int i = 0; i<N; i++)
+            {
+                if(A[i] > first && A[i] < second)
+                {
+                    sum += A[i];
+                }
+            }
+            return sum;
+            
+    }
+};
+
+Question = code for minimum cost of ropes of gfg
+
+class Solution {
+  public:
+    int minCost(vector<int>& arr) {
+        
+        priority_queue<int,vector<int>,greater<int>>min_heap;
+        
+        for(int i=0;i<arr.size();i++)
+        {
+            min_heap.push(arr[i]);
+        }
+        while(min_heap.size)() >= 2)
+        {
+            int first = min_heap.top();
+            min_heap.pop();
+            
+            int second = min_heap.top();
+            min_heap.pop();
+            
+            cost += first + second;
+            
+            min_heap.push(first + second);
+        }
+        return cost;
+    }
+};
+
