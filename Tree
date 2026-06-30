@@ -274,3 +274,176 @@ public:
         return ans;            
     }
 };
+
+Question = size of binary tree of gfg
+
+
+/*
+Definition for Node
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+*/
+class Solution {
+     void preorder(Node* node,int &count)
+    {
+        if(node == NULL)
+        return;
+
+        preorder(node->left,count);
+        preorder(node->right,count);
+        
+        count++;
+    
+    }
+  public:
+    int getSize(Node* root) {
+        int count = 0;
+        preorder(root,count);
+        return count;
+    }
+};
+
+Question = sum of binary tree of gfg
+
+
+/*
+Definition for Node
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+*/
+class Solution {
+    void preorder(Node* node,int &sum)
+    {
+        if(node == NULL)
+        return;
+        
+        sum += node->data;
+        preorder(node->left,sum);
+        preorder(node->right,sum);
+    
+    }
+  public:
+    int sumBT(Node* root) {
+        int sum =  0;
+        preorder(root,sum);
+        return sum;
+    }
+};
+
+Question = count leaves in binary tree of gfg
+
+/* A binary tree node has data, pointer to left child
+   and a pointer to right child
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+}; */
+
+// Class Solution
+class Solution {
+    public:
+    void preorder(Node* node, int &count)
+    {
+        if(node == NULL)
+        return;
+        
+        if(node->left == NULL && node->right == NULL)//calculate leaf node
+        {
+            count++;
+            return;
+        }
+        
+        preorder(node->left,count);
+        preorder(node->right,count);
+    }
+  
+    // Function to count the number of leaf nodes in a binary tree.
+    int countLeaves(Node* root) {
+        int count = 0;
+        preorder(root,count);
+        return count;
+    }
+};
+
+Question = count non leaf nodes in tree
+
+/*Structure of the node of the tree is as
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+*/
+// you are required to complete this function
+// the function should return the count of Non-Leaf Nodes
+class Solution {
+  public:
+  void preorder(Node* node, int &count)
+    {
+        if(node == NULL)
+        return;
+        
+        if(node->left == NULL && node->right == NULL)//calculate leaf node
+        {
+            
+            return;
+        }
+        count++;
+        
+        preorder(node->left,count);
+        preorder(node->right,count);
+    }
+  
+    int countNonLeafNodes(Node* root) {
+        int count = 0;
+        preorder(root,count);
+        return count;
+    }
+};
+
+Question = height of binary tree of gfg
+
+/*
+Definition for Node
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = nullptr;
+    }
+};
+*/
+
+class Solution {
+  public:
+    int height(Node* root) {
+        if(root == NULL)
+        return -1;
+        
+        return 1+max(height(root->left),height(root->right));
+    }
+};
