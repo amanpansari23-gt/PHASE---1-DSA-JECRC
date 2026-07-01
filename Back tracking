@@ -78,3 +78,27 @@ public:
         return output;
     }
 };
+
+Question = problem 70 leetcode
+
+class Solution {
+public:
+    int solve(int n, int t[46])
+    {
+        if(n == 0 || n == 1)
+        return 1;
+
+        if(t[n] != -1)
+        return t[n];
+
+         t[n] = solve(n-1,t) + solve(n-2,t);
+         return t[n];
+
+    }
+    int climbStairs(int n) {
+        int t[46];
+        memset(t,-1,sizeof(t));
+        return solve(n,t);
+        
+    }
+};
